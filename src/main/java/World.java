@@ -3,7 +3,7 @@ import java.util.List;
 
 public class World {
 
-    private final List<List<Character>> world;
+//    private final List<List<Character>> world;
     private final int numColumns;
     private final int numRows;
 
@@ -12,9 +12,10 @@ public class World {
 
     public World(int numRows, int numColumns){
 
-        world = new ArrayList<>();
+//        world = new ArrayList<>();
         this.numRows = numRows;
         this.numColumns = numColumns;
+
 
         //using x, y, determine how many arraylists need to be implemented for size
         // if World(2,2) then my world needs 2 rows and 2 columns,
@@ -27,6 +28,9 @@ public class World {
         String result = ". .\n. .";
         return result;
     }
+
+
+
 
 
 }
