@@ -4,14 +4,14 @@ public class Game {
 
     public Game(){
 
-        world = new World();
+        world = new World(2,2);
     }
 
-    public boolean setWorld(int x, int y){
+    public void setWorld(int x, int y){
 
+         //user input here, need to use the input to make array of arrays to make the grid size eg 2 x 2
+        // how do I use this in the world class? am I putting this in the incorrect spot?
 
-
-        return true;
     }
 
     public World getWorld(){
