@@ -38,13 +38,20 @@ public class Game {
     }
 
     public int checkCellNeighbours(int x, int y) {
-
+        //checking how many neighbours cell 2,2 has
+        // initializing int
         int numOfLiveNeighbours = 0;
 
+        // row is 1 in this case
+        // as long as row is less than or equal to  3, keep looping through the row
+        // not understanding this sentence
         for (int row = x - 1; row <= x + 1; row++) {
+
             int wrappedRow = wrappedRowValue(row);
+
             for (int col = y - 1; col <= y + 1; col++) {
                 int wrappedCol = wrappedColumnValue(col);
+                //if the cell in the world around the coordinates that's been checked is alive, add to neighboursAlive count
                 if (world[wrappedRow][wrappedCol].isAlive()) {
                     numOfLiveNeighbours++;
                 }
