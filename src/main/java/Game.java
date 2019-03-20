@@ -1,22 +1,42 @@
+import org.apache.commons.lang3.tuple.Pair;
+
 public class Game {
 
-    private final World world;
+    private Cell[][] world;
+    private int worldWidth;
+    private int worldHeight;
 
-    public Game(){
-
-        world = new World();
+    public Game(int width, int height){
+        this.world = new Cell[height][width];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                this.world[i][j] = new Cell();
+            }
+        }
+        this.worldWidth = width;
+        this.worldHeight = height;
     }
 
-    public void setWorld(int x, int y){
+    public String showWorld(){
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < worldHeight; i++) {
+            for (int j = 0; j < worldWidth; j++) {
+                result.append(world[i][j].getPrintValue());
+            }
+            result.append("\n");
+        }
 
-        world.setWorldSize(x, y);
-
-         //user input here, need to use the input to make array of arrays to make the grid size eg 2 x 2
-        // how do I use this in the world class? am I putting this in the incorrect spot?
-
+        return result.toString();
     }
 
-    public World getWorld(){
-        return world;
+    public void setInitialState(Pair<Integer, Integer>[] seed) {
+        for (int i = 0; i < seed.length; i++) {
+            Pair<Integer, Integer> seedElement = seed[i];
+            Cell cell = world[seedElement.getLeft() - 1][seedElement.getRight() - 1];
+            cell.setAlive(true);
+        }
     }
+
+
+
 }
