@@ -53,7 +53,8 @@ public class GameTest {
         //arrange
         Game game = new Game(5,5);
         Pair<Integer, Integer>[] seed = new Pair[]{
-                new ImmutablePair(1,1),
+                new ImmutablePair(2,2),
+                new ImmutablePair(2,3)
 
         };
 
@@ -62,9 +63,11 @@ public class GameTest {
         //act
         int result = game.checkCellNeighbours(1,1);
 
-        //assert
-        Assert.assertEquals(1,result);
 
+        //assert
+        Assert.assertEquals(2,result);
 
     }
+
+
 }
