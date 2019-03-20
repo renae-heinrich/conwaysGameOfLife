@@ -42,13 +42,16 @@ public class Game {
         // initializing int
         int numOfLiveNeighbours = 0;
 
-        // row is 1 in this case
-        // as long as row is less than or equal to  3, keep looping through the row
-        // not understanding this sentence
+       //setting boundaries for the row so know where to stop checking
+        //only checking x - 1, in this case we are only checking row 1, and checking up until row less than or equal to row + 1, so row 3.
+
         for (int row = x - 1; row <= x + 1; row++) {
 
             int wrappedRow = wrappedRowValue(row);
 
+            //setting boundaries for the column so know where to stop checking
+            //only checking y - 1, in this case we are only checking column 1, and checking up until column less than or equal to column + 1, so column 3.
+            //do this so we only hone in on the neighbours directly around the cell, and forget about the others
             for (int col = y - 1; col <= y + 1; col++) {
                 int wrappedCol = wrappedColumnValue(col);
                 //if the cell in the world around the coordinates that's been checked is alive, add to neighboursAlive count
@@ -80,6 +83,9 @@ public class Game {
         }
         return colPosition;
     }
+
+
+
 
 
 
