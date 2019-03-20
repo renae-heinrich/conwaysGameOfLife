@@ -42,13 +42,36 @@ public class Game {
         int numOfLiveNeighbours = 0;
 
         for (int row = x - 1; row <= x + 1; row++) {
+            int wrappedRow = wrappedRowValue(row);
             for (int col = y - 1; col <= y + 1; col++) {
-                if (world[row][col].isAlive()) {
+                int wrappedCol = wrappedColumnValue(col);
+                if (world[wrappedRow][wrappedCol].isAlive()) {
                     numOfLiveNeighbours++;
                 }
             }
 
         } return numOfLiveNeighbours;
+
+    }
+
+    private int wrappedRowValue(int rowPosition){
+        if(rowPosition == -1){
+
+            return worldHeight - 1;
+        } else if(rowPosition == worldHeight + 1){
+            return 0;
+        }
+        return rowPosition;
+    }
+
+    private int wrappedColumnValue(int colPosition){
+        if(colPosition == -1){
+            return worldWidth - 1;
+
+        } else if(colPosition == worldWidth + 1){
+            return 0;
+        }
+        return colPosition;
     }
 
 

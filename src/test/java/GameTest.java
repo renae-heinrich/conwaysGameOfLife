@@ -69,5 +69,22 @@ public class GameTest {
 
     }
 
+    @Test
+    public void checkCellNeighboursThatWrapToOtherSideOfGrid() {
+        Game game = new Game(5,5);
+        Pair<Integer,Integer>[] seed = new Pair[]{
+                new ImmutablePair(2,2),
+                new ImmutablePair(2,3),
+                new ImmutablePair(3,3),
+                new ImmutablePair(3,4),
+                new ImmutablePair(3,5)
+        };
 
+        game.setInitialState(seed);
+
+        int result = game.checkCellNeighbours(0,2);
+
+        Assert.assertEquals(2, result);
+
+    }
 }
