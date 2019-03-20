@@ -37,6 +37,29 @@ public class Game {
         }
     }
 
+    public int checkCellNeighbours(int x, int y) {
+        // input is 0,0
+        int numOfLiveNeighbours = 0;
+
+        for (int row = x - 1; row <= x + 1; row++) {
+            for (int col = y - 1; col <= y + 1; col++) {
+                if (world[row][col].isAlive()) {
+                    numOfLiveNeighbours++;
+                }
+            }
+
+        } return numOfLiveNeighbours;
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 }
