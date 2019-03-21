@@ -103,5 +103,24 @@ public class GameTest {
         Assert.assertEquals(0, result3);
     }
 
+    @Test
+    public void whenALiveCellWithFewerThanTwoNeighboursDiesAtNextEvolution(){
+        Game game = new Game(4,6);
+
+        Pair<Integer,Integer>[] seed = new Pair[]{
+          new ImmutablePair(2,2)
+        };
+
+        game.setInitialState(seed);
+
+        game.evole();
+
+        String result = game.showWorld();
+
+        Assert.assertEquals(". . . .\n. . . .\n. . . .\n. . . .\n. . . .\n. . . .\n", result);
+
+
+    }
+
 
 }

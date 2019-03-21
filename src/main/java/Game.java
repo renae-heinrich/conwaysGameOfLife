@@ -68,6 +68,14 @@ public class Game {
 
     }
 
+    public void evolve(){
+        //loop through all cells and use checkCellNeighbours method to see how many neighbours that particular cell has
+        // to determine if it will be alive or dead on the next evolution
+        // ... can this method now be private? or testing will prevent this?
+        // don't want them to change state immediately,  but want to know what state they WILL be on next evolution, use the new future state in Cell Class
+        // after I've looped through and assessed all the current cells' state, tick over to the next evolution and update the cells to the new state, then show the board again.
+    }
+
 
     private int wrappedRowValue(int rowPosition){
         if(rowPosition == 0){
