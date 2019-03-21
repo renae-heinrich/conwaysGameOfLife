@@ -35,9 +35,9 @@ public class GameTest {
         Game game = new Game(5,5);
         Pair<Integer, Integer>[] seed = new Pair[] {
                 new ImmutablePair(2, 2),
-                new ImmutablePair(2, 3),
+                new ImmutablePair(3, 2),
                 new ImmutablePair(3, 3),
-                new ImmutablePair(3, 4)
+                new ImmutablePair(4, 3)
         };
         game.setInitialState(seed);
 
@@ -54,7 +54,7 @@ public class GameTest {
         Game game = new Game(5,5);
         Pair<Integer, Integer>[] seed = new Pair[]{
                 new ImmutablePair(2,2),
-                new ImmutablePair(2,3)
+                new ImmutablePair(3,2)
 
         };
 
@@ -65,7 +65,7 @@ public class GameTest {
 
 
         //assert
-        Assert.assertEquals(2,result);
+        Assert.assertEquals(1, result);
 
     }
 
@@ -74,17 +74,34 @@ public class GameTest {
         Game game = new Game(5,5);
         Pair<Integer,Integer>[] seed = new Pair[]{
                 new ImmutablePair(2,2),
-                new ImmutablePair(2,3),
+                new ImmutablePair(3,2),
                 new ImmutablePair(3,3),
-                new ImmutablePair(3,4),
-                new ImmutablePair(3,5)
+                new ImmutablePair(4,3),
+                new ImmutablePair(5,3)
         };
 
         game.setInitialState(seed);
 
-        int result = game.checkCellNeighbours(0,2);
+        int result = game.checkCellNeighbours(1,3);
+        int result2 = game.checkCellNeighbours(3,1);
+        int result3 = game.checkCellNeighbours(4,3);
 
         Assert.assertEquals(2, result);
+        Assert.assertEquals(2, result2);
+        Assert.assertEquals(3, result3);
+
 
     }
+
+    @Test
+    public void checkingWrappedFunctionalityUsingSmall4x5Grid() {
+        Game game = new Game(4, 6);
+
+        int result3 = game.checkCellNeighbours(1,6);
+
+
+        Assert.assertEquals(0, result3);
+    }
+
+
 }

@@ -14,5 +14,10 @@ public class Cell {
         return alive ? "#" : ".";
     }
 
+    //set future state of cell to get status on what cell state will be on next evolution
+
+
+
+
 
 }
